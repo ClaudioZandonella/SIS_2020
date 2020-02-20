@@ -144,7 +144,7 @@ To evaluate the estimation methods we used the same criteria considered by \cite
 Relative\ mean\ bias = (\bar{\theta}-\theta)/\theta,\\
 Relative\ median\ bias = (\widetilde{\theta}-\theta)/\theta.
 \end{eqnarray}
-Relative bias included between -.10 and .10 are considered acceptable \cite{smidSemSmallSamples2020}. MSE takes into account variability as well as bias of the estimates: $MSE = \sigma^2 + (\bar{\theta}- \theta)^2$, where $\sigma$ is the standard deviation of the estimates across replications and $\bar{\theta}$ is the mean. Coverage is the proportion of replications in which the population value is included in the 95\% confidence interval (CI; for the ML estimation) or 95\% highest posterior density interval (HPD; for the Bayesian estimation). Instead, Power is the proportion of replications in which the value zero is not included in the 95\% CI or 95\% HPD. Analyses were conducted considering the standardized parameters.
+Relative bias included between -.10 and .10 are considered acceptable \cite{smidSemSmallSamples2020}. MSE takes into account variability as well as bias of the estimates: $MSE = \sigma^2 + (\bar{\theta}- \theta)^2$, where $\sigma$ is the standard deviation of the estimates across replications and $\bar{\theta}$ is the mean. Coverage is the proportion of replications in which the population value is included in the 95\% confidence interval (CI; for the ML estimation) or 95\% highest posterior density interval (HPD; for the Bayesian estimation). Instead, power is the proportion of replications in which the value zero is not included in the 95\% CI or 95\% HPD. Analyses were conducted considering the standardized parameters.
 
 \subsection{Results}
 
@@ -155,9 +155,9 @@ The tables with detailed results for each parameter and condition are reported i
 	\caption{Estimates distribution.}
 	\label{fig:boxplots}
 \end{figure}
-Only with very small sample sizes it is possible to observe some differences between estimation methods: Maximum likelihood approach produces the widest distributions, whereas bayesian approach with experts priors has narrower distributions. However, differences between methods are noticeable for the parameter $\beta_3$ but, they are less evident for the other parameters. Moreover, as the sample size increases estimation methods perform similar to each other.
+Only with very small sample sizes it is possible to observe some differences between estimation methods: Maximum likelihood approach produces the widest distributions, whereas Bayesian approach with experts priors has narrower distributions. However, differences between methods are noticeable for the parameter $\beta_3$ (i.e., the parameter with the smallest population value) but are less evident for the other parameters and, as the sample size increases, estimation methods perform similar to each other.
 
-Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. 
+Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. Difference between methods are bigger in the case of very small samples, with ML estimation presenting higher MSE values and Bayesian approach with experts prior performing better. However, differences between prior specification are noticeable only for the parameter $\beta_3$, whereas in the other cases all types of priors perform similarly.
 
 \begin{figure}[t]
 	\sidecaption
@@ -166,9 +166,24 @@ Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern.
 	\label{fig:mse}
 \end{figure}
 
+Finally, the result of coverage and power are presented in Fig.~\ref{fig:Plot_coverage_power}. Coverage reaches adequate levels in all condition  with sample size  equal or greater of 100. With smaller sample sizes, Bayesian approach with experts prior showed excessive coverage in the case of the parameter $\beta_3$. Power is extremely low when sample sizes are small. ML estimation performs slightly better in terms of power across all conditions, except for the  parameter $\beta_3$ where is outperformed by Bayesian approach with experts prior.
+
+\begin{figure}[b]
+	\sidecaption
+	\includegraphics[width = 1\textwidth]{figure/Plot_coverage_power}
+	\caption{Coverage and power values.}
+	\label{fig:Plot_coverage_power}
+\end{figure}
+
 \section{Discussion and conclusions}
 
 \label{sec:dicussion}
+
+Overall, useful in the case of limited data. However it would be important to understand the different behaviour of the different parameter.
+
+Limit on specification of prior how much is informative.
+
+Elicitation does not inform only about the prior but the collaboration with experts in the field would help also in defining more reasonable models along all the research process. (incentivare collaborazione)
 
 \clearpage
 
