@@ -213,8 +213,17 @@ table_results = results_table(parameter_values, res, return_list = FALSE)
 plot_recovery(table_results, criteria = "mean_squared_error",
               method_labels = c("ML", "Bayesian default", "Reasonable prior","Experts prior"),
               parameter_labels = c("$\\beta_1$","$\\beta_2$","$\\beta_3$"))+
-  labs(y="MSE")+
+  labs(y="MSE", x="Sample size")+
   theme(legend.position=c(.5,1.4),
+        legend.direction = "horizontal",
+        plot.margin = margin(30,0,0,0))
+
+@
+
+<<Plot_coverage_power, fig.pos="!ht", fig.align="center", fig.height=3, fig.width=5.5, fig.cap="", fig.scap="", dev.args=list(pointsize=12)>>=
+
+plot_coverage_power(table_results, parameter_labels = c("$\\beta_1$","$\\beta_2$","$\\beta_3$"), method_labels = c("ML", "Bayesian default", "Reasonable prior","Experts prior"), criteria_labels = c("Coverage", "Power"))+
+  theme(legend.position=c(.5,1.21),
         legend.direction = "horizontal",
         plot.margin = margin(30,0,0,0))
 

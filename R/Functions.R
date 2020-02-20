@@ -346,17 +346,17 @@ distribution_estimates <- function(res, parameter, true_value){
 
 #----    plot_recovery    ----
 
-plot_recovery <- function(results_table, criteria,
+plot_recovery <- function(table_results, criteria,
                           parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
                           method_labels = c("ML","Bayes_default","Bayes_infI","Bayes_infII")){
 
-  n_col = match(criteria,names(results_table))
+  n_col = match(criteria,names(table_results))
 
   labels_parameter = make_labels(original_names = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
                                  new_names = parameter_labels)
 
-  results_table %>%
-    ggplot(aes(x=as.numeric(as.character(n_sample)), y=results_table[[n_col]], color = method))+
+  table_results %>%
+    ggplot(aes(x=as.numeric(as.character(n_sample)), y=table_results[[n_col]], color = method))+
     geom_line()+
     geom_point()+
     labs(x="Sample size", y = criteria, color="Method")+
@@ -366,6 +366,38 @@ plot_recovery <- function(results_table, criteria,
     theme(legend.position = "top")
 
 }
+
+
+
+#----    plot_coverage_power    ----
+
+plot_coverage_power <- function(table_results,
+                                parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
+                                method_labels = c("ML","Bayes_default","Bayes_infI","Bayes_infII"),
+                                criteria_labels = c("coverage","power")){
+
+  labels_parameter = make_labels(original_names = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
+                                 new_names = parameter_labels)
+  labels_criteria = make_labels(original_names = c("coverage","power"),
+                                 new_names = criteria_labels)
+
+  table_results%>%
+    pivot_longer(cols = c("coverage","power"), values_to = "value", names_to = "criteria")%>%
+    mutate(criteria = factor(criteria)) %>%
+    ggplot(aes(x=as.numeric(as.character(n_sample)), y=value, color = method))+
+    geom_line()+
+    geom_point()+
+    labs(x="Sample size", y = "", color="Method")+
+    scale_x_continuous(breaks = c(30,50,100,500), trans = "log")+
+    scale_color_discrete(labels = method_labels)+
+    facet_grid(criteria ~ parameter,scale="free", labeller = labeller(parameter=labels_parameter,
+                                                                      criteria = labels_criteria))+
+    theme(legend.position = "top")
+
+
+}
+
+
 
 
 

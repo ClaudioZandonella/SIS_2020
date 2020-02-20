@@ -87,6 +87,7 @@ plot_recovery(table_results, criteria = "mean_squared_error")
 plot_recovery(table_results, criteria = "coverage")
 plot_recovery(table_results, criteria = "power")
 
+plot_coverage_power(table_results)
 
 
 # #----    Check   -----
