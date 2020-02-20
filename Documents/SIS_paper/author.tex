@@ -145,7 +145,7 @@ The tables with detailed results for each parameter and condition are reported i
 \begin{figure}[b]
 	\sidecaption
 	\includegraphics[width = .9\textwidth]{figure/Plot_boxplots}
-	\caption{Estimates distribution.}
+	\caption{Estimates distribution for each parameter across the different condition. Dashed lines represent the true population values.}
 	\label{fig:boxplots}
 \end{figure}
 Only with very small sample sizes ($n=30$) it is possible to observe some differences between estimation methods: Maximum likelihood approach produces the widest distributions, whereas Bayesian approach with experts priors has narrower distributions. However, differences between methods are noticeable for the parameter $\beta_3$ (i.e., the parameter with the smallest population value) but are less evident for the other parameters and, as the sample size increases, estimation methods perform similar to each other.
@@ -154,7 +154,7 @@ Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. D
 \begin{figure}[t]
 	\sidecaption
 	\includegraphics[width = .9\textwidth]{figure/Plot_MSE}
-	\caption{MSE values.}
+	\caption{Mean Squared Error (MSE) values for each parameter across the different conditions.}
 	\label{fig:mse}
 \end{figure}
 
@@ -162,7 +162,7 @@ Finally, the result of coverage and power are presented in Fig.~\ref{fig:Plot_co
 \begin{figure}[b]
 	\sidecaption
 	\includegraphics[width = .9\textwidth]{figure/Plot_coverage_power}
-	\caption{Coverage and power values.}
+	\caption{Coverage and power values for each parameter across the different conditions.}
 	\label{fig:Plot_coverage_power}
 \end{figure}
 Coverage reaches adequate levels in all condition  with sample size  equal or greater of 100. With smaller sample sizes, Bayesian approach with experts prior showed excessive coverage in the case of the parameter $\beta_3$. Power is extremely low when sample sizes are small. ML estimation performs slightly better in terms of power across all conditions, except for the  parameter $\beta_3$ where is outperformed by Bayesian approach with experts prior. However, adequate levels of power are reached for all parameters only with large sample sizes ($n = 500$).
