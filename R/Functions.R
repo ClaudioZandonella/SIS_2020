@@ -356,12 +356,14 @@ plot_recovery <- function(table_results, criteria,
                                  new_names = parameter_labels)
 
   table_results %>%
-    ggplot(aes(x=as.numeric(as.character(n_sample)), y=table_results[[n_col]], color = method))+
+    ggplot(aes(x=as.numeric(as.character(n_sample)), y=table_results[[n_col]], color = method, linetype=method))+
     geom_line()+
     geom_point()+
-    labs(x="Sample size", y = criteria, color="Method")+
+    labs(x="Sample size", y = criteria, color="Method", linetype="Method")+
     scale_x_continuous(breaks = c(30,50,100,500), trans = "log")+
     scale_color_discrete(labels = method_labels)+
+    scale_linetype_manual(values=c("solid","dashed","dotdash","dotted"),
+                          labels= method_labels)+
     facet_grid(.~ parameter, labeller = labeller(parameter=labels_parameter))+
     theme(legend.position = "top")
 
@@ -384,11 +386,13 @@ plot_coverage_power <- function(table_results,
   table_results%>%
     pivot_longer(cols = c("coverage","power"), values_to = "value", names_to = "criteria")%>%
     mutate(criteria = factor(criteria)) %>%
-    ggplot(aes(x=as.numeric(as.character(n_sample)), y=value, color = method))+
+    ggplot(aes(x=as.numeric(as.character(n_sample)), y=value, color = method, linetype=method))+
     geom_line()+
     geom_point()+
-    labs(x="Sample size", y = "", color="Method")+
+    labs(x="Sample size", y = "", color="Method", linetype="Method")+
     scale_x_continuous(breaks = c(30,50,100,500), trans = "log")+
+    scale_linetype_manual(values=c("solid","dashed","dotdash","dotted"),
+                          labels= method_labels)+
     scale_color_discrete(labels = method_labels)+
     facet_grid(criteria ~ parameter,scale="free", labeller = labeller(parameter=labels_parameter,
                                                                       criteria = labels_criteria))+
