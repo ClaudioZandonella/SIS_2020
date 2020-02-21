@@ -32,6 +32,9 @@ inclusion_interval_vectorized <- Vectorize(inclusion_interval, vectorize.args = 
 
 #----    make_labels    ----
 
+# Make labels for facet_grid in ggplot given old labels (<original_names>)
+# and new labels (<new_names>)
+
 make_labels <- function(original_names, new_names){
   labels = new_names
 

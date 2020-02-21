@@ -131,7 +131,9 @@ apply_simultaion <- function(plan_simulation, n_cores, gc=TRUE){
 
 #----    relative_bias    ----
 
-# Get the relative bias
+# Get the relative bias of the vector of the estimates (<estimates_vector>)
+# given the true value and the function defined in FUN
+# Used to obtain relative mean bias and relative median bias
 
 relative_bias <- function(estimates_vector, true_value, FUN){
 
@@ -144,7 +146,7 @@ relative_bias <- function(estimates_vector, true_value, FUN){
 
 #----    mean_squared_error    ----
 
-# Get MSE
+# Get the MSE of the vector of the estimates (<estimates_vector>) given the true value
 
 mean_squared_error <- function(estimates_vector, true_value){
 
@@ -157,7 +159,8 @@ mean_squared_error <- function(estimates_vector, true_value){
 
 #----    coverage    ----
 
-# Get coverage
+# Get coverage given the intervals (lower bounds and upper bound are vectors)
+# and the true value
 
 coverage <- function(lb_vector, ub_vector, true_value){
 
@@ -171,7 +174,7 @@ coverage <- function(lb_vector, ub_vector, true_value){
 
 #----    power    ----
 
-# Get power
+# Get power given the intervals (lower bounds and upper bound are vectors)
 
 power <- function(lb_vector, ub_vector){
 
@@ -186,11 +189,29 @@ power <- function(lb_vector, ub_vector){
 
 
 
+
 #######################
 ####    results    ####
 #######################
 
+#----    load_results    ----
+
+# Load the file with the results of the simulation
+# Return a data.frame with iter, n_sample, method, parameter, est, ci.lower and ci.upper
+
+load_results <- function(file_path){
+  read.csv(file = file_path, header = T, sep = ",", stringsAsFactors = F)%>%
+    mutate(n_sample = factor(n_sample),
+           method = factor(method, levels = c("ML","Bayes_default","Bayes_infI","Bayes_infII")),
+           parameter = as.factor(parameter))
+}
+
 #----    summarize_results   ----
+
+# Summarize the results selecting the parameter of interest (<name_parameter>)
+# and giving its true value (<true_value>).
+# Return a dataframe with n_sample, method, parameter, relative_mean_bias, relative_median_bias,
+# mean_squared_error, coverage, and power
 
 summarize_results <- function(res, name_parameter, true_value) {
   name_parameter = enquo(name_parameter)
@@ -207,7 +228,12 @@ summarize_results <- function(res, name_parameter, true_value) {
 
 #----    table_results    ----
 
-results_table <- function(parameter_values, res, return_list=FALSE){
+# Create table with the results of each parameter given the results (<res>),
+# the data.frame with name of the parameter and true values (<parameter_values>).
+# Returns a data.frame with the same information of summarize_results() function or,
+# if return_list=TRUE return a list with separate output for each parameter.
+
+results_table <- function(res, parameter_values, return_list=FALSE){
 
   parameter = parameter_values[,1]
   true_value =  parameter_values[,2]
@@ -286,6 +312,9 @@ plot_prior <- function(size=1){
 
 #----    plot_boxplots    ----
 
+# Boxplots of the distributions of parameter estimates for single parameter
+# given the parameter name (<parameter>) and true value (<true_value>)
+
 plot_boxplots <- function(res, parameter, true_value){
   name_parameter = parameter
   parameter = enquo(parameter)
@@ -302,6 +331,9 @@ plot_boxplots <- function(res, parameter, true_value){
 
 
 #----    plot_boxplots_all    ----
+
+# Boxplots of the distributions of parameter estimates for all parameters
+# given the true values (<true_value>). It is possible to change labels.
 
 plot_boxplots_all <- function(res, true_values = c(.205, -.363, -.129),
                               parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
@@ -326,6 +358,9 @@ plot_boxplots_all <- function(res, true_values = c(.205, -.363, -.129),
 
 #----    distribution_estimates    ----
 
+# Plot densities of the distributions of parameter estimates for single parameter
+# given the parameter name (<parameter>) and true value (<true_value>)
+
 distribution_estimates <- function(res, parameter, true_value){
 
   name_parameter = parameter
@@ -345,6 +380,9 @@ distribution_estimates <- function(res, parameter, true_value){
 }
 
 #----    plot_recovery    ----
+
+# Plot recovery of a specified criteria (<criteria>) for all the parameters
+# given the table of the results (<table_results>). It is possible to change labels.
 
 plot_recovery <- function(table_results, criteria, size =1,
                           parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
@@ -372,6 +410,9 @@ plot_recovery <- function(table_results, criteria, size =1,
 
 
 #----    plot_coverage_power    ----
+
+# Plot coverage and power for all the parameters
+# given the table of the results (<table_results>). It is possible to change labels.
 
 plot_coverage_power <- function(table_results, size = 1,
                                 parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),

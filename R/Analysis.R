@@ -47,25 +47,20 @@ model_Bayes_infII<-'
 plan_simulation = expand.grid(iter=1:5,n=c(15,20))
 
 tictoc::tic()
-profvis::profvis({
-  res = apply_simultaion(plan_simulation, n_cores = 6, gc = TRUE)
-  })
+res = apply_simultaion(plan_simulation, n_cores = 6, gc = TRUE)
 tictoc::toc()
 
 #----    Results    ----
 
 # load results
+res <- load_results(file_path = "Data/res_1000.csv")
 
-res <- read.csv(file = "Data/res_1000.csv", header = T, sep = ",", stringsAsFactors = F)%>%
-  mutate(n_sample = factor(n_sample),
-         method = factor(method, levels = c("ML","Bayes_default","Bayes_infI","Bayes_infII")),
-         parameter = as.factor(parameter))
-
+# define true papulation parameter values
 parameter_values <- data.frame(parameter = c("METACOGN~NEUROT","SLEEP~METACOGN","SLEEP~NEUROT"),
                                true_value = c(.205, -.363, -.129), stringsAsFactors = F)
 
 # Table with all the results
-table_results = results_table(parameter_values, res, return_list = FALSE)
+table_results = results_table(res, parameter_values, return_list = FALSE)
 table_results
 
 # Plot estimates distribution
