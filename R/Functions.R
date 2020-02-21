@@ -269,7 +269,7 @@ plot_prior <- function(size=1){
     ggplot() +
     geom_line(aes(x=x, y=density, color=Prior, linetype=Prior), size=size)+
     facet_grid(.~parameter)+
-    scale_linetype_manual(values=c(1,2,4))+
+    scale_linetype_manual(values=c("solid","dashed","dotted"))+
     theme(legend.position = c(.5,-0.33),
           legend.direction = "horizontal",
           axis.line.y = element_blank(),
@@ -346,7 +346,7 @@ distribution_estimates <- function(res, parameter, true_value){
 
 #----    plot_recovery    ----
 
-plot_recovery <- function(table_results, criteria,
+plot_recovery <- function(table_results, criteria, size =1,
                           parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
                           method_labels = c("ML","Bayes_default","Bayes_infI","Bayes_infII")){
 
@@ -358,7 +358,7 @@ plot_recovery <- function(table_results, criteria,
   table_results %>%
     ggplot(aes(x=as.numeric(as.character(n_sample)), y=table_results[[n_col]], color = method, linetype=method))+
     geom_line()+
-    geom_point()+
+    geom_point(size=size)+
     labs(x="Sample size", y = criteria, color="Method", linetype="Method")+
     scale_x_continuous(breaks = c(30,50,100,500), trans = "log")+
     scale_color_discrete(labels = method_labels)+
@@ -373,7 +373,7 @@ plot_recovery <- function(table_results, criteria,
 
 #----    plot_coverage_power    ----
 
-plot_coverage_power <- function(table_results,
+plot_coverage_power <- function(table_results, size = 1,
                                 parameter_labels = c("METACOGN~NEUROT", "SLEEP~METACOGN", "SLEEP~NEUROT"),
                                 method_labels = c("ML","Bayes_default","Bayes_infI","Bayes_infII"),
                                 criteria_labels = c("coverage","power")){
@@ -388,7 +388,7 @@ plot_coverage_power <- function(table_results,
     mutate(criteria = factor(criteria)) %>%
     ggplot(aes(x=as.numeric(as.character(n_sample)), y=value, color = method, linetype=method))+
     geom_line()+
-    geom_point()+
+    geom_point(size=size)+
     labs(x="Sample size", y = "", color="Method", linetype="Method")+
     scale_x_continuous(breaks = c(30,50,100,500), trans = "log")+
     scale_linetype_manual(values=c("solid","dashed","dotdash","dotted"),
