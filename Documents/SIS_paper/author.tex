@@ -31,6 +31,16 @@
 \makeindex             % used for the subject index
                        % please use the style svind.ist with
                        % your makeindex program
+                       
+                       
+%----    Revision command    -----%
+\definecolor{OliveGreen}{rgb}{0,0.6,0}
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\newcommand{\claudio}[1]{(\textcolor{red}{Claudio: #1})}
+\newcommand{\altoe}[1]{(\textcolor{blue}{Altoè: #1})}
+\newcommand{\pastore}[1]{(\textcolor{OliveGreen}{Pastore: #1})}
+\newcommand{\enrico}[1]{(\textcolor{amber}{Enrico: #1})}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -64,6 +74,11 @@ Psychology, University of Padova \\ \email{enrico.toffalini@yahoo.it}
 
 \section{Introduction}
 \label{sec:1}
+
+\claudio{Prova Claudio}
+\altoe{Prova Altoè}
+\pastore{Prova Pastore}
+\enrico{Prova Enrico}
 
 \emph{Structural Equation Modeling} (SEM) encompasses  a range of multivariate statistical techniques as, for example, confirmatory factor analysis, path analysis, or latent growth modeling. Generally, SEMs are composed of two parts: a \emph{measurement model} and a \emph{structural model} (see Fig.~\ref{fig:example_sem}).   The measurement model defines unobserved constructs (\emph{latent variables}, represented in Fig.~\ref{fig:example_sem} as circles) according to a set of measured outcomes (\emph{observed variables}, represented in Fig.~\ref{fig:example_sem} as squares), whereas the structural model describes the relationships between latent variables.
 \begin{figure}[b]
