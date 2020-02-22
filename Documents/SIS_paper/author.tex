@@ -31,8 +31,8 @@
 \makeindex             % used for the subject index
                        % please use the style svind.ist with
                        % your makeindex program
-                       
-                       
+
+
 %----    Revision command    -----%
 \definecolor{OliveGreen}{rgb}{0,0.6,0}
 \definecolor{amber}{rgb}{1.0, 0.49, 0.0}
@@ -69,16 +69,17 @@ Psychology, University of Padova \\ \email{enrico.toffalini@yahoo.it}
 \maketitle
 
 \abstract{Structural Equation Modeling (SEM) is useful in psychological research, where complex structures of data must be modelled considering several sources of variability. Sample sizes in Psychology cannot be as large as ideal for SEM in most cases, and real effect sizes are generally small, leading to a widespread problem of insufficient power. Bayesian estimation with informed priors can be beneficial in this context. Our simulation study examines this issue over a real case of a mediation model. Parameter recovery, power and coverage were considered. The advantage of a Bayesian approach was evident for the smallest effects. Expert knowledge elicitation, i.e., the correct formalization of the theoretical expectations, is crucial and It allows for increased collaboration among researchers in Psychology and Statistics.}
-\abstract{\emph{Abstract in Italian} I Modelli di Equazioni Strutturali (SEM) sono utilizzati in psicologia per indagare fenomeni complessi. In psicologia le dimensioni degli effetti sono generalmente piccole e i campioni di studio non ideali per l'approccio SEM, portando a un problema di insufficiente potenza. La stima bayesiana con prior informative può essere utile in questo contesto. Il nostro studio di simulazione esamina questo problema nel caso reale di un modello di mediazione. Sono state considerate la stima dei parametri, gli intervalli di confidenza e la potenza. Il vantaggio dell'approccio Bayesiano è risultato evidente per i più piccoli effetti. La formalizzazione della conoscenza degli esperti e la delle aspettative teoriche è cruciale e permette una maggiore collaborazione tra ricercatori in Psicologia e Statistica.}
+\abstract{\emph{Abstract in Italian} I Modelli di Equazioni Strutturali (SEM) sono utilizzati in psicologia per indagare fenomeni complessi. In psicologia le dimensioni degli effetti sono generalmente piccole e i campioni di studio non ideali per l'approccio SEM, portando a un problema di insufficiente potenza. La stima bayesiana con prior informative può essere utile in questo contesto. Il nostro studio di simulazione esamina questo problema nel caso reale di un modello di mediazione. Sono state considerate la stima dei parametri, gli intervalli di confidenza e la potenza. Il vantaggio dell'approccio Bayesiano è risultato evidente per gli effetti più piccoli. La formalizzazione della conoscenza degli esperti e delle aspettative teoriche è cruciale
+soprattutto nell'ottica di favorire una fruttuosa collaborazione tra ricercatori in Psicologia e Statistica.}
 \keywords{Expert elicitation, Informative Priors, Structural Equation Models (SEM), Small sample sizes, Psychological research}
 
 \section{Introduction}
 \label{sec:1}
 
-\claudio{Prova Claudio}
-\altoe{Prova Altoè}
-\pastore{Prova Pastore}
-\enrico{Prova Enrico}
+%\claudio{Prova Claudio}
+%\altoe{Prova Altoè}
+%\pastore{Prova Pastore}
+%\enrico{Prova Enrico}
 
 \emph{Structural Equation Modeling} (SEM) encompasses  a range of multivariate statistical techniques as, for example, confirmatory factor analysis, path analysis, or latent growth modeling. Generally, SEMs are composed of two parts: a \emph{measurement model} and a \emph{structural model} (see Fig.~\ref{fig:example_sem}).   The measurement model defines unobserved constructs (\emph{latent variables}, represented in Fig.~\ref{fig:example_sem} as circles) according to a set of measured outcomes (\emph{observed variables}, represented in Fig.~\ref{fig:example_sem} as squares), whereas the structural model describes the relationships between latent variables.
 \begin{figure}[b]
@@ -90,8 +91,8 @@ Psychology, University of Padova \\ \email{enrico.toffalini@yahoo.it}
 
 In SEM, parameters are estimated by minimizing a discrepancy function between the sample covariance matrix and the covariance matrix implied by the model. Considering the covariance structure (instead of modeling all the observed data) allows to model complex relations between variables taking into account also the  measurement error.
 
-Given their great flexibility, SEMs are widely used in psychology for various purposes such as validating psychological tests and questionnaires or evaluating hypotheses and theoretical models that involve complex relations between different latent psychological constructs. However, as the complexity of the model increases, more data are required to obtain accurate parameter estimates and model fit statistics \cite{wolfSampleSizeRequirements2013}. 
-Recent concerns about the replicability of psychological results have raised awareness on the importance of properly define an adequate sample size \cite{ioannidisWhyMostPublished2005, opensciencecollaborationEstimatingReproducibilityPsychological2015}.  
+Given their great flexibility, SEMs are widely used in psychology for various purposes such as validating psychological tests and questionnaires or evaluating hypotheses and theoretical models that involve complex relations between different latent psychological constructs. However, as the complexity of the model increases, more data are required to obtain accurate parameter estimates and model fit statistics \cite{wolfSampleSizeRequirements2013}.
+Recent concerns about the replicability of psychological results have raised awareness on the importance of properly define an adequate sample size \cite{ioannidisWhyMostPublished2005, opensciencecollaborationEstimatingReproducibilityPsychological2015}.
 Nevertheless, in many research settings, the number of participants may be limited due to financial restriction, strict inclusion criteria, or clinical samples. In the case of small sample sizes, appropriate statistical techniques are required to enhance the reliability of the results.
 
 Often in the literature, the Bayesian approach is suggested over frequentist estimation when limited data are available \cite{mcneishUsingBayesianMethods2016a}.  In the context of small sample, the inclusion of prior information can help in the parameter estimation, but researchers have to carefully consider priors choice, as estimates are highly sensitive to the prior specification (or misspecification). The use of Bayesian statistical approach is increasing and availability of softwares, such as R-package \texttt{blavaan} \cite{merkleBlavaanBayesianStructural2018},  provide researchers with flexible tools for estimating even Bayesian structural equation models. However, most of the studies are unlikely to carefully consider priors choices, and often they rely on default software prior settings. A recent review, considering the performance of Bayesian estimation for structural equation models with small sample sizes, underlined that the use of diffuse default priors can result in severely biased estimates, and this bias can be decreased only by incorporating informative priors \cite{smidBayesianFrequentistEstimation2020}. Thus, authors warn against the use of \emph{naive prior} (i.e., diffuse default priors) when samples are small, and encourage researchers to incorporate \emph{thoughtful priors} (i.e., informative priors).
@@ -112,14 +113,14 @@ Different elicitation methods have been proposed in the literature such as the \
 	\item{\emph{Aggregation of individual judgements} - the individual judgements of the different experts are aggregate to obtain a unique final distribution. The two principal approaches are \emph{mathematical  aggregation}, where distributions are combined mathematically according to a pooling rule, and \emph{behavioral aggregation}, where experts are required to discuss together their opinions and reach a consensus judgement from which the aggregate distribution is obtained.}
 \end{enumerate}
 
-Elicitation methods differ in the solutions adopted during each phase and in the emphasis given to the different aspects of the elicitation. 
+Elicitation methods differ in the solutions adopted during each phase and in the emphasis given to the different aspects of the elicitation.
 %For example, in the Cooke protocol experts are not required to meet each other. Experts return a form with their individual answer and mathematical aggregation is used to summarize the results. In the SHELF protocol, instead, much more emphasis is given to the collaboration between experts. After the  individual judgments, experts discuss and share their opinions to then reach a common final answer.
 Researchers willing to conduct an elicitation process should evaluate the pros and cons of each methods considering their own needs and constraints such as availability of experts, the possibility to group experts together, number of quantities to elicit or financial and time constraints.
 
 \section{Simulation}
 \label{sec:simulation}
 
-To evaluate the influence of different prior specifications in the case of structural equation models with small sample size, we considered a mediation model from \cite{sellaPersonalityTraitsSleep2020}  presented in Fig.~\ref{fig:example_model}. 
+To evaluate the influence of different prior specifications in the case of structural equation models with small sample size, we considered a mediation model from \cite{sellaPersonalityTraitsSleep2020}  presented in Fig.~\ref{fig:example_model}.
 \begin{figure}[b]
 	\sidecaption
 	\includegraphics[width = .64\textwidth]{figure/Plot_example_model}
@@ -136,7 +137,7 @@ Three different prior distribution specifications were used in the Bayesian esti
 \begin{enumerate}
 	\item{\textit{Default prior} -  in \texttt{blavaan}, default priors for regression coefficients are $N(0,10)$}. These priors are diffuse over a wide range of values (95\% CI\ [-19.6;\ 19.6]) and are intended to be non-informative.
 	\item{\textit{Reasonable prior} - the priors are $\beta_1\sim N(.20,\ .50)$, and  $\beta_{2;3}\sim N(-.20,\ .50)$, that correspond, respectively, to a 95\% CI of  [-.78;\ 1.18] and  [-1.18; .78]. These priors are moderately informative, they are intended to exclude excessively large values that are not reasonable within psychology research. Moreover, the mean of each prior distribution is slightly moved above or below zero to reflect the direction of the main results in the literature for each relation.}
- 	\item{\textit{Experts prior} - the priors are $\beta_1\sim N(.20,\ .20)$,  $\beta_{2}\sim N(-.40,\ .20)$}, and $\beta_3\sim N(-.20,\ .20)$, that correspond, respectively, to a 95\% CI of  [-0.19;\ .59], [-0.79;\ .01], and  [-.59; .19]. These priors are intended to be highly informative, they are intended to represent experts judgement of the quantities of interest according to previous results in the literature and their experience in the field. Confidence 
+ 	\item{\textit{Experts prior} - the priors are $\beta_1\sim N(.20,\ .20)$,  $\beta_{2}\sim N(-.40,\ .20)$}, and $\beta_3\sim N(-.20,\ .20)$, that correspond, respectively, to a 95\% CI of  [-0.19;\ .59], [-0.79;\ .01], and  [-.59; .19]. These priors are intended to be highly informative, they are intended to represent experts judgement of the quantities of interest according to previous results in the literature and their experience in the field. %Confidence
 \end{enumerate}
 \begin{figure}[b]
 	\sidecaption
@@ -154,10 +155,10 @@ Relative bias included between -.10 and .10 are considered acceptable \cite{smid
 
 \subsection{Results}
 
-The tables with detailed results for each parameter and condition are reported in the Appendix. To interpret the results of relative mean and median bias, we considered the distribution of the estimated parameters (see Fig.~\ref{fig:boxplots}). 
+The tables with detailed results for each parameter and condition are reported in the Appendix. To interpret the results of relative mean and median bias, we considered the distribution of the estimated parameters (see Fig.~\ref{fig:boxplots}).
 \begin{figure}[b]
 	\sidecaption
-	\includegraphics[width = .9\textwidth]{figure/Plot_boxplots}
+	\includegraphics[width = 1\textwidth]{figure/Plot_boxplots}
 	\caption{Estimates distribution for each parameter across the different condition. Dashed lines represent the true population values.}
 	\label{fig:boxplots}
 \end{figure}
@@ -166,7 +167,7 @@ Only with very small sample sizes ($n=30$) it is possible to observe some differ
 Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. Differences between methods are bigger in the case of very small samples ($n=30$), with ML estimation presenting higher MSE values and Bayesian approach with experts prior performing better. However, differences between prior specification are noticeable only for the parameter $\beta_3$, whereas in the other cases all types of priors perform similarly.
 \begin{figure}[t]
 	\sidecaption
-	\includegraphics[width = .9\textwidth]{figure/Plot_MSE}
+	\includegraphics[width = 1\textwidth]{figure/Plot_MSE}
 	\caption{Mean Squared Error (MSE) values for each parameter across the different conditions.}
 	\label{fig:mse}
 \end{figure}
@@ -174,7 +175,7 @@ Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. D
 Finally, the result of coverage and power are presented in Fig.~\ref{fig:Plot_coverage_power}.
 \begin{figure}[b]
 	\sidecaption
-	\includegraphics[width = .9\textwidth]{figure/Plot_coverage_power}
+	\includegraphics[width = 1\textwidth]{figure/Plot_coverage_power}
 	\caption{Coverage and power values for each parameter across the different conditions.}
 	\label{fig:Plot_coverage_power}
 \end{figure}
@@ -188,39 +189,107 @@ In the simulation, we evaluated the different estimation methods in the case of 
 
 However, results are not consistent for all the parameters. In most conditions, Bayesian approach performs better than ML but results are very similar between the different prior specifications. Only in the case of small true population parameter values the Bayesian approach with experts priors performs much better than the other prior specifications. Thus, it is necessary to investigate the role of prior definition in models with different structures and levels of complexity, where the dimension of the effects varies.
 
-Another limit in the formalization of priors concerns the definition of inaccurate priors. The more informative the priors are the more accurate results is possible to obtain, as long as priors correctly identify the real population values. However, this is never the case in applied research and inaccurate priors definition could lead to not reliable results. Future studies should evaluate how misspecified priors could influence the results in the case of small sample size. 
+Another important aspect that future studies should focus on concerns the impact of prior knowledge misspecification, in partcular in situations with small sample sizes.
+
+%Another limit in the formalization of priors concerns the definition of inaccurate priors. The more informative the priors are the more accurate results is possible to obtain, as long as priors correctly identify the real population values. However, this is never the case in applied research and inaccurate priors definition could lead to not reliable results. Future studies should evaluate how misspecified priors could influence the results in the case of small sample size.
 
 In summary, the formalization of informative priors according to experts judgement and relevant knowledge in the field could help in the case of small sample size but further investigation is needed. However, we want to highlight that experts knowledge elicitation is not only useful to inform prior distributions but experts knowledge in the field can help also in other aspects of the analysis. Experts can help and inform researchers in the design of the experiments, definition of the models, interpretation of the results and make reasonable and informed choices along all the research process. Thus, the collaboration between different experts is a crucial point that should be encouraged in any applied research field.
 
-\clearpage 
+\clearpage
 
 \section*{Appendix}
 \addcontentsline{toc}{section}{Appendix}
 \label{sec: apendix}
 
 
-\begin{table}\caption{Summary of the simulation results for the parameter $\beta_1$}
-\label{tab:}\begin{tabular}[t]{llccccc}\hline\noalign{\smallskip}
-Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\\noalign{\smallskip}\svhline\noalign{\smallskip}
-30 & Maximum likelihood & 0.066 & 0.040 & 0.037 & 0.932 & 0.261\\30 & Bayes default prior & -0.011 & -0.005 & 0.029 & 0.947 & 0.215\\30 & Bayes reasonable prior & -0.010 & -0.009 & 0.029 & 0.949 & 0.211\\30 & Bayes experts prior & -0.011 & -0.005 & 0.029 & 0.949 & 0.209\\
+\begin{table}
+\caption{Summary of the simulation results for the parameter $\beta_1$}
+\label{tab:}
+\begin{tabular}[t]{llccccc}
+\hline\noalign{\smallskip}
+Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\
+\noalign{\smallskip}\svhline\noalign{\smallskip}
+30 & Maximum likelihood & 0.066 & 0.040 & 0.037 & 0.932 & 0.261\\
+30 & Bayes default prior & -0.011 & -0.005 & 0.029 & 0.947 & 0.215\\
+30 & Bayes reasonable prior & -0.010 & -0.009 & 0.029 & 0.949 & 0.211\\
+30 & Bayes experts prior & -0.011 & -0.005 & 0.029 & 0.949 & 0.209\\
 \noalign{\smallskip}
-50 & Maximum likelihood & -0.015 & -0.022 & 0.019 & 0.946 & 0.306\\50 & Bayes default prior & -0.053 & -0.053 & 0.016 & 0.958 & 0.274\\50 & Bayes reasonable prior & -0.053 & -0.056 & 0.016 & 0.960 & 0.277\\50 & Bayes experts prior & -0.054 & -0.052 & 0.016 & 0.957 & 0.272\\\noalign{\smallskip}
-100 & Maximum likelihood & -0.023 & -0.038 & 0.010 & 0.942 & 0.532\\100 & Bayes default prior & -0.044 & -0.038 & 0.009 & 0.951 & 0.512\\100 & Bayes reasonable prior & -0.044 & -0.044 & 0.009 & 0.950 & 0.514\\100 & Bayes experts prior & -0.044 & -0.040 & 0.009 & 0.949 & 0.509\\\noalign{\smallskip}
-500 & Maximum likelihood & -0.012 & -0.012 & 0.002 & 0.950 & 0.996\\500 & Bayes default prior & -0.016 & -0.016 & 0.002 & 0.945 & 0.996\\500 & Bayes reasonable prior & -0.016 & -0.012 & 0.002 & 0.943 & 0.995\\500 & Bayes experts prior & -0.016 & -0.012 & 0.002 & 0.951 & 0.996\\\noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}\end{table}
-\begin{table}
+50 & Maximum likelihood & -0.015 & -0.022 & 0.019 & 0.946 & 0.306\\
+50 & Bayes default prior & -0.053 & -0.053 & 0.016 & 0.958 & 0.274\\
+50 & Bayes reasonable prior & -0.053 & -0.056 & 0.016 & 0.960 & 0.277\\
+50 & Bayes experts prior & -0.054 & -0.052 & 0.016 & 0.957 & 0.272\\
+\noalign{\smallskip}
+100 & Maximum likelihood & -0.023 & -0.038 & 0.010 & 0.942 & 0.532\\
+100 & Bayes default prior & -0.044 & -0.038 & 0.009 & 0.951 & 0.512\\
+100 & Bayes reasonable prior & -0.044 & -0.044 & 0.009 & 0.950 & 0.514\\
+100 & Bayes experts prior & -0.044 & -0.040 & 0.009 & 0.949 & 0.509\\
+\noalign{\smallskip}
+500 & Maximum likelihood & -0.012 & -0.012 & 0.002 & 0.950 & 0.996\\
+500 & Bayes default prior & -0.016 & -0.016 & 0.002 & 0.945 & 0.996\\
+500 & Bayes reasonable prior & -0.016 & -0.012 & 0.002 & 0.943 & 0.995\\
+500 & Bayes experts prior & -0.016 & -0.012 & 0.002 & 0.951 & 0.996\\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+\end{tabular}
+\end{table}
+
+\begin{table}
 \caption{Summary of the simulation results for the parameter $\beta_2$}
-\begin{tabular}[t]{llccccc}\hline\noalign{\smallskip}
-Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\\noalign{\smallskip}\svhline\noalign{\smallskip}30 & Maximum likelihood & 0.038 & 0.043 & 0.035 & 0.923 & 0.631\\30 & Bayes default prior & 0.014 & 0.047 & 0.028 & 0.954 & 0.535\\30 & Bayes reasonable prior & 0.013 & 0.047 & 0.027 & 0.951 & 0.540\\30 & Bayes experts prior & 0.005 & 0.046 & 0.026 & 0.951 & 0.545\\\noalign{\smallskip}50 & Maximum likelihood & -0.006 & 0.004 & 0.020 & 0.940 & 0.769\\50 & Bayes default prior & -0.030 & 0.002 & 0.016 & 0.961 & 0.727\\50 & Bayes reasonable prior & -0.031 & 0.000 & 0.016 & 0.960 & 0.724\\50 & Bayes experts prior & -0.037 & -0.008 & 0.016 & 0.957 & 0.725\\\noalign{\smallskip}100 & Maximum likelihood & -0.003 & 0.012 & 0.009 & 0.942 & 0.964\\100 & Bayes default prior & -0.004 & 0.007 & 0.008 & 0.951 & 0.959\\100 & Bayes reasonable prior & -0.005 & 0.007 & 0.008 & 0.948 & 0.958\\100 & Bayes experts prior & -0.010 & 0.003 & 0.008 & 0.951 & 0.962\\\noalign{\smallskip}500 & Maximum likelihood & 0.000 & 0.001 & 0.002 & 0.963 & 1.000\\500 & Bayes default prior & -0.002 & 0.004 & 0.001 & 0.963 & 1.000\\500 & Bayes reasonable prior & -0.002 & 0.005 & 0.001 & 0.960 & 1.000\\500 & Bayes experts prior & -0.004 & 0.004 & 0.001 & 0.962 & 1.000\\\noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}\end{table}
+\begin{tabular}[t]{llccccc}
+\hline\noalign{\smallskip}
+Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\
+\noalign{\smallskip}\svhline\noalign{\smallskip}
+30 & Maximum likelihood & 0.038 & 0.043 & 0.035 & 0.923 & 0.631\\
+30 & Bayes default prior & 0.014 & 0.047 & 0.028 & 0.954 & 0.535\\
+30 & Bayes reasonable prior & 0.013 & 0.047 & 0.027 & 0.951 & 0.540\\
+30 & Bayes experts prior & 0.005 & 0.046 & 0.026 & 0.951 & 0.545\\
+\noalign{\smallskip}
+50 & Maximum likelihood & -0.006 & 0.004 & 0.020 & 0.940 & 0.769\\
+50 & Bayes default prior & -0.030 & 0.002 & 0.016 & 0.961 & 0.727\\
+50 & Bayes reasonable prior & -0.031 & 0.000 & 0.016 & 0.960 & 0.724\\
+50 & Bayes experts prior & -0.037 & -0.008 & 0.016 & 0.957 & 0.725\\
+\noalign{\smallskip}
+100 & Maximum likelihood & -0.003 & 0.012 & 0.009 & 0.942 & 0.964\\
+100 & Bayes default prior & -0.004 & 0.007 & 0.008 & 0.951 & 0.959\\
+100 & Bayes reasonable prior & -0.005 & 0.007 & 0.008 & 0.948 & 0.958\\
+100 & Bayes experts prior & -0.010 & 0.003 & 0.008 & 0.951 & 0.962\\
+\noalign{\smallskip}
+500 & Maximum likelihood & 0.000 & 0.001 & 0.002 & 0.963 & 1.000\\
+500 & Bayes default prior & -0.002 & 0.004 & 0.001 & 0.963 & 1.000\\
+500 & Bayes reasonable prior & -0.002 & 0.005 & 0.001 & 0.960 & 1.000\\
+500 & Bayes experts prior & -0.004 & 0.004 & 0.001 & 0.962 & 1.000\\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+\end{tabular}
+\end{table}
 
 
 \begin{table}
 \caption{Summary of the simulation results for the parameter $\beta_3$}
-\begin{tabular}[t]{llccccc}\hline\noalign{\smallskip}
-Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\\noalign{\smallskip}\svhline\noalign{\smallskip}30 & Maximum likelihood & -0.034 & -0.015 & 0.033 & 0.941 & 0.147\\30 & Bayes default prior & -0.108 & -0.124 & 0.027 & 0.959 & 0.112\\30 & Bayes reasonable prior & -0.037 & -0.050 & 0.021 & 0.970 & 0.117\\30 & Bayes experts prior & 0.148 & 0.096 & 0.009 & 0.993 & 0.153\\\noalign{\smallskip}50 & Maximum likelihood & 0.030 & 0.014 & 0.019 & 0.939 & 0.195\\50 & Bayes default prior & -0.025 & -0.001 & 0.017 & 0.950 & 0.164\\50 & Bayes reasonable prior & 0.013 & 0.034 & 0.014 & 0.954 & 0.172\\50 & Bayes experts prior & 0.140 & 0.132 & 0.008 & 0.978 & 0.247\\\noalign{\smallskip}100 & Maximum likelihood & -0.009 & -0.028 & 0.008 & 0.954 & 0.295\\100 & Bayes default prior & -0.030 & -0.049 & 0.008 & 0.960 & 0.278\\100 & Bayes reasonable prior & -0.012 & -0.025 & 0.007 & 0.963 & 0.294\\100 & Bayes experts prior & 0.070 & 0.049 & 0.005 & 0.972 & 0.364\\\noalign{\smallskip}500 & Maximum likelihood & -0.016 & -0.025 & 0.002 & 0.952 & 0.871\\500 & Bayes default prior & -0.021 & -0.033 & 0.002 & 0.951 & 0.862\\500 & Bayes reasonable prior & -0.017 & -0.034 & 0.002 & 0.953 & 0.875\\500 & Bayes experts prior & 0.003 & -0.011 & 0.002 & 0.957 & 0.904\\
+\begin{tabular}[t]{llccccc}
+\hline\noalign{\smallskip}
+Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\
+\noalign{\smallskip}\svhline\noalign{\smallskip}
+30 & Maximum likelihood & -0.034 & -0.015 & 0.033 & 0.941 & 0.147\\
+30 & Bayes default prior & -0.108 & -0.124 & 0.027 & 0.959 & 0.112\\
+30 & Bayes reasonable prior & -0.037 & -0.050 & 0.021 & 0.970 & 0.117\\
+30 & Bayes experts prior & 0.148 & 0.096 & 0.009 & 0.993 & 0.153\\
+\noalign{\smallskip}
+50 & Maximum likelihood & 0.030 & 0.014 & 0.019 & 0.939 & 0.195\\
+50 & Bayes default prior & -0.025 & -0.001 & 0.017 & 0.950 & 0.164\\
+50 & Bayes reasonable prior & 0.013 & 0.034 & 0.014 & 0.954 & 0.172\\
+50 & Bayes experts prior & 0.140 & 0.132 & 0.008 & 0.978 & 0.247\\
+\noalign{\smallskip}
+100 & Maximum likelihood & -0.009 & -0.028 & 0.008 & 0.954 & 0.295\\
+100 & Bayes default prior & -0.030 & -0.049 & 0.008 & 0.960 & 0.278\\
+100 & Bayes reasonable prior & -0.012 & -0.025 & 0.007 & 0.963 & 0.294\\
+100 & Bayes experts prior & 0.070 & 0.049 & 0.005 & 0.972 & 0.364\\
+\noalign{\smallskip}
+500 & Maximum likelihood & -0.016 & -0.025 & 0.002 & 0.952 & 0.871\\
+500 & Bayes default prior & -0.021 & -0.033 & 0.002 & 0.951 & 0.862\\
+500 & Bayes reasonable prior & -0.017 & -0.034 & 0.002 & 0.953 & 0.875\\
+500 & Bayes experts prior & 0.003 & -0.011 & 0.002 & 0.957 & 0.904\\
 \noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}\end{table}
+\end{tabular}
+\end{table}
 
 \clearpage
 
