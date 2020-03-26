@@ -36,6 +36,7 @@
 %----    Revision command    -----%
 \definecolor{OliveGreen}{rgb}{0,0.6,0}
 \definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\newcommand{\todo}[1]{(\textcolor{red}{To do: #1})}
 \newcommand{\claudio}[1]{(\textcolor{red}{Claudio: #1})}
 \newcommand{\altoe}[1]{(\textcolor{blue}{Altoè: #1})}
 \newcommand{\pastore}[1]{(\textcolor{OliveGreen}{Pastore: #1})}
@@ -99,29 +100,35 @@ Often in the literature, the Bayesian approach is suggested over frequentist est
 
 Informative priors allow researchers to include in the analysis relevant knowledge in the field, such as previous studies results, meta-analyses or expert opinions. Priors choice should be clearly discussed and researchers are required to evaluate the generalizability of external information to the specific characteristics of their study. When the number of available studies is limited or their quality is judged not adequate, relying only on previous results in the literature could be misleading. In these cases, researchers could consider to include opinions of experts as well. On the base of their experience in the field, experts can evaluate relevant information and help researchers in the definition of a plausible range of values and prior choices.
 
-The remainder of this article is structured as follows. In Sec.~\ref{sec:expert_elicitation}, we briefly consider how informative priors can be defined according to experts' opinions. In Sec.~\ref{sec:simulation}, we present a simulation study to evaluate the influence of different prior specifications in the case of structural equation models with small sample size, considering an applied example of a mediation model in psychology. Finally, in Sec.~\ref{sec:dicussion}, we discuss the obtained results highlighting limits and future developments of using expert knowledge with structural equation models in the case of  small sample sizes.
+\emph{Elicitation} is a structured procedure that allows experts to express their knowledge and uncertainty about quantities of interest in the form of probability distributions \cite{ohaganExpertKnowledgeElicitation2019}. Elicitation can be used to define priors according to  experts' judgement. Different elicitation methods have been proposed in the literature such as the \emph{Cooke protocol} \cite{cookeExpertsUncertaintyOpinion1991}, the \emph{Delphi method} \cite{roweDelphiTechniqueForecasting1999} or the \emph{SHELF protocol} \cite{oakleySHELFSheffieldElicitation2016}. The common aim of these methods is to make a subjective judgement as much objective as possible by limiting potential sources of bias, forcing the experts to carefully reason about the answer, and by documenting and transparently reporting the whole procedure.
 
-\section{Expert knowledge elicitation}
-\label{sec:expert_elicitation}
+Elicitation methods differ in the solutions adopted during each phase and in the emphasis given to the different aspects of the elicitation. Researchers willing to conduct an elicitation process should evaluate the pros and cons of each methods considering their own needs and constraints such as availability of experts, the possibility to group experts together, number of quantities to elicit or financial and time constraints.
 
-\emph{Elicitation} is a structured procedure that allows experts to express their knowledge and uncertainty about quantities of interest in the form of probability distributions \cite{ohaganExpertKnowledgeElicitation2019}. Elicitation can be used to define priors according to  experts' judgement.
+The remainder of this article is structured as follows. In Sec.~\ref{sec:simulation}, we present a simulation study to evaluate the influence of different prior specifications in the case of structural equation models with small sample size, considering an applied example of a mediation model in psychology. In Sec.~\ref{sec:dicussion}, we discuss the obtained results highlighting limits and future developments of using expert knowledge with structural equation models in the case of  small sample sizes.
 
-Different elicitation methods have been proposed in the literature such as the \emph{Cooke protocol} \cite{cookeExpertsUncertaintyOpinion1991}, the \emph{Delphi method} \cite{roweDelphiTechniqueForecasting1999} or the \emph{SHELF protocol} \cite{oakleySHELFSheffieldElicitation2016}. The common aim of these methods is to make a subjective judgement as much objective as possible by limiting potential sources of bias, forcing the experts to carefully reason about the answer, and by documenting and transparently reporting all the procedure. In general, elicitation is composed of three phases \cite{ohaganUncertainJudgementsEliciting2006}:
-\begin{enumerate}
-	\item{\emph{Preparation and training} - experts are informed about  the aim of the elicitation and the parameters and quantities to elicit are clearly defined. All the relevant information about the topic of interest is collected and made available to experts. Next, experts are trained to make probabilistic judgements and they are familiarize with the elicitation process in a practice example to avoid misunderstandings. }
-	\item{\emph{Individual judgements elicitation} - experts express their own judgement for each parameter or quantity of interest according to the elicitation technique they were trained before. Two of the main elicitation technique are the \emph{quartile method} and the \emph{roulette method}. In the former, experts provide values for the medians  and the quartile of the distribution according to their expectation. In the latter, the range of plausible values is divided into different intervals and the experts can place a given number of tokens to allocate probabilities according to  their expectation.}
-	\item{\emph{Aggregation of individual judgements} - the individual judgements of the different experts are aggregate to obtain a unique final distribution. The two principal approaches are \emph{mathematical  aggregation}, where distributions are combined mathematically according to a pooling rule, and \emph{behavioral aggregation}, where experts are required to discuss together their opinions and reach a consensus judgement from which the aggregate distribution is obtained.}
-\end{enumerate}
+% \section{Expert knowledge elicitation}
+% \label{sec:expert_elicitation}
 
-Elicitation methods differ in the solutions adopted during each phase and in the emphasis given to the different aspects of the elicitation.
-%For example, in the Cooke protocol experts are not required to meet each other. Experts return a form with their individual answer and mathematical aggregation is used to summarize the results. In the SHELF protocol, instead, much more emphasis is given to the collaboration between experts. After the  individual judgments, experts discuss and share their opinions to then reach a common final answer.
-Researchers willing to conduct an elicitation process should evaluate the pros and cons of each methods considering their own needs and constraints such as availability of experts, the possibility to group experts together, number of quantities to elicit or financial and time constraints.
+% \emph{Elicitation} is a structured procedure that allows experts to express their knowledge and uncertainty about quantities of interest in the form of probability distributions \cite{ohaganExpertKnowledgeElicitation2019}. Elicitation can be used to define priors according to  experts' judgement.
+%
+% Different elicitation methods have been proposed in the literature such as the \emph{Cooke protocol} \cite{cookeExpertsUncertaintyOpinion1991}, the \emph{Delphi method} \cite{roweDelphiTechniqueForecasting1999} or the \emph{SHELF protocol} \cite{oakleySHELFSheffieldElicitation2016}. The common aim of these methods is to make a subjective judgement as much objective as possible by limiting potential sources of bias, forcing the experts to carefully reason about the answer, and by documenting and transparently reporting all the procedure.
+
+% In general, elicitation is composed of three phases \cite{ohaganUncertainJudgementsEliciting2006}:
+% \begin{enumerate}
+% 	\item{\emph{Preparation and training} - experts are informed about  the aim of the elicitation and the parameters and quantities to elicit are clearly defined. All the relevant information about the topic of interest is collected and made available to experts. Next, experts are trained to make probabilistic judgements and they are familiarize with the elicitation process in a practice example to avoid misunderstandings. }
+% 	\item{\emph{Individual judgements elicitation} - experts express their own judgement for each parameter or quantity of interest according to the elicitation technique they were trained before. Two of the main elicitation technique are the \emph{quartile method} and the \emph{roulette method}. In the former, experts provide values for the medians  and the quartile of the distribution according to their expectation. In the latter, the range of plausible values is divided into different intervals and the experts can place a given number of tokens to allocate probabilities according to  their expectation.}
+% 	\item{\emph{Aggregation of individual judgements} - the individual judgements of the different experts are aggregate to obtain a unique final distribution. The two principal approaches are \emph{mathematical  aggregation}, where distributions are combined mathematically according to a pooling rule, and \emph{behavioral aggregation}, where experts are required to discuss together their opinions and reach a consensus judgement from which the aggregate distribution is obtained.}
+% \end{enumerate}
+
+% Elicitation methods differ in the solutions adopted during each phase and in the emphasis given to the different aspects of the elicitation.
+% %For example, in the Cooke protocol experts are not required to meet each other. Experts return a form with their individual answer and mathematical aggregation is used to summarize the results. In the SHELF protocol, instead, much more emphasis is given to the collaboration between experts. After the  individual judgments, experts discuss and share their opinions to then reach a common final answer.
+% Researchers willing to conduct an elicitation process should evaluate the pros and cons of each methods considering their own needs and constraints such as availability of experts, the possibility to group experts together, number of quantities to elicit or financial and time constraints.
 
 \section{Simulation}
 \label{sec:simulation}
 
 To evaluate the influence of different prior specifications in the case of structural equation models with small sample size, we considered a mediation model from \cite{sellaPersonalityTraitsSleep2020}  presented in Fig.~\ref{fig:example_model}.
-\begin{figure}[b]
+\begin{figure}[t]
 	\sidecaption
 	\includegraphics[width = .64\textwidth]{figure/Plot_example_model}
 	\caption{Mediation model from \cite{sellaPersonalityTraitsSleep2020}. Neuroticism is not directly associated to sleep quality but is mediated by metacognitive thoughts.}
@@ -139,7 +146,7 @@ Three different prior distribution specifications were used in the Bayesian esti
 	\item{\textit{Reasonable prior} - the priors are $\beta_1\sim N(.20,\ .50)$, and  $\beta_{2;3}\sim N(-.20,\ .50)$, that correspond, respectively, to a 95\% CI of  [-.78;\ 1.18] and  [-1.18; .78]. These priors are moderately informative, they are intended to exclude excessively large values that are not reasonable within psychology research. Moreover, the mean of each prior distribution is slightly moved above or below zero to reflect the direction of the main results in the literature for each relation.}
  	\item{\textit{Experts prior} - the priors are $\beta_1\sim N(.20,\ .20)$,  $\beta_{2}\sim N(-.40,\ .20)$}, and $\beta_3\sim N(-.20,\ .20)$, that correspond, respectively, to a 95\% CI of  [-0.19;\ .59], [-0.79;\ .01], and  [-.59; .19]. These priors are intended to be highly informative, they are intended to represent experts judgement of the quantities of interest according to previous results in the literature and their experience in the field. %Confidence
 \end{enumerate}
-\begin{figure}[b]
+\begin{figure}[t]
 	\sidecaption
 	\includegraphics[width = .60\textwidth]{figure/Plot_prior}
 	\caption{Prior distribution in the three different settings. Default prior are intended to be non-informative. Reasonable prior  are intended to exclude unplausible values. Experts priror represent experts judgement.}
@@ -155,8 +162,8 @@ Relative bias included between -.10 and .10 are considered acceptable \cite{smid
 
 \subsection{Results}
 
-The tables with detailed results for each parameter and condition are reported in the Appendix. To interpret the results of relative mean and median bias, we considered the distribution of the estimated parameters (see Fig.~\ref{fig:boxplots}).
-\begin{figure}[b]
+The tables with detailed results for each parameter and condition are reported in the Appendix \todo{add repo link}. To interpret the results of relative mean and median bias, we considered the distribution of the estimated parameters (see Fig.~\ref{fig:boxplots}).
+\begin{figure}[t]
 	\sidecaption
 	\includegraphics[width = 1\textwidth]{figure/Plot_boxplots}
 	\caption{Estimates distribution for each parameter across the different condition. Dashed lines represent the true population values.}
@@ -165,7 +172,7 @@ The tables with detailed results for each parameter and condition are reported i
 Only with very small sample sizes ($n=30$) it is possible to observe some differences between estimation methods: Maximum likelihood approach produces the widest distributions, whereas Bayesian approach with experts priors has narrower distributions. However, differences between methods are noticeable for the parameter $\beta_3$ (i.e., the parameter with the smallest population value) but are less evident for the other parameters and, as the sample size increases, estimation methods perform similar to each other.
 
 Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. Differences between methods are bigger in the case of very small samples ($n=30$), with ML estimation presenting higher MSE values and Bayesian approach with experts prior performing better. However, differences between prior specification are noticeable only for the parameter $\beta_3$, whereas in the other cases all types of priors perform similarly.
-\begin{figure}[t]
+\begin{figure}[b]
 	\sidecaption
 	\includegraphics[width = 1\textwidth]{figure/Plot_MSE}
 	\caption{Mean Squared Error (MSE) values for each parameter across the different conditions.}
@@ -173,7 +180,7 @@ Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. D
 \end{figure}
 
 Finally, the result of coverage and power are presented in Fig.~\ref{fig:Plot_coverage_power}.
-\begin{figure}[b]
+\begin{figure}[t]
 	\sidecaption
 	\includegraphics[width = 1\textwidth]{figure/Plot_coverage_power}
 	\caption{Coverage and power values for each parameter across the different conditions.}
@@ -194,104 +201,6 @@ Another important aspect that future studies should focus on concerns the impact
 %Another limit in the formalization of priors concerns the definition of inaccurate priors. The more informative the priors are the more accurate results is possible to obtain, as long as priors correctly identify the real population values. However, this is never the case in applied research and inaccurate priors definition could lead to not reliable results. Future studies should evaluate how misspecified priors could influence the results in the case of small sample size.
 
 In summary, the formalization of informative priors according to experts judgement and relevant knowledge in the field could help in the case of small sample size but further investigation is needed. However, we want to highlight that experts knowledge elicitation is not only useful to inform prior distributions but experts knowledge in the field can help also in other aspects of the analysis. Experts can help and inform researchers in the design of the experiments, definition of the models, interpretation of the results and make reasonable and informed choices along all the research process. Thus, the collaboration between different experts is a crucial point that should be encouraged in any applied research field.
-
-\clearpage
-
-\section*{Appendix}
-\addcontentsline{toc}{section}{Appendix}
-\label{sec: apendix}
-
-
-\begin{table}
-\caption{Summary of the simulation results for the parameter $\beta_1$}
-\label{tab:}
-\begin{tabular}[t]{llccccc}
-\hline\noalign{\smallskip}
-Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\
-\noalign{\smallskip}\svhline\noalign{\smallskip}
-30 & Maximum likelihood & 0.066 & 0.040 & 0.037 & 0.932 & 0.261\\
-30 & Bayes default prior & -0.011 & -0.005 & 0.029 & 0.947 & 0.215\\
-30 & Bayes reasonable prior & -0.010 & -0.009 & 0.029 & 0.949 & 0.211\\
-30 & Bayes experts prior & -0.011 & -0.005 & 0.029 & 0.949 & 0.209\\
-\noalign{\smallskip}
-50 & Maximum likelihood & -0.015 & -0.022 & 0.019 & 0.946 & 0.306\\
-50 & Bayes default prior & -0.053 & -0.053 & 0.016 & 0.958 & 0.274\\
-50 & Bayes reasonable prior & -0.053 & -0.056 & 0.016 & 0.960 & 0.277\\
-50 & Bayes experts prior & -0.054 & -0.052 & 0.016 & 0.957 & 0.272\\
-\noalign{\smallskip}
-100 & Maximum likelihood & -0.023 & -0.038 & 0.010 & 0.942 & 0.532\\
-100 & Bayes default prior & -0.044 & -0.038 & 0.009 & 0.951 & 0.512\\
-100 & Bayes reasonable prior & -0.044 & -0.044 & 0.009 & 0.950 & 0.514\\
-100 & Bayes experts prior & -0.044 & -0.040 & 0.009 & 0.949 & 0.509\\
-\noalign{\smallskip}
-500 & Maximum likelihood & -0.012 & -0.012 & 0.002 & 0.950 & 0.996\\
-500 & Bayes default prior & -0.016 & -0.016 & 0.002 & 0.945 & 0.996\\
-500 & Bayes reasonable prior & -0.016 & -0.012 & 0.002 & 0.943 & 0.995\\
-500 & Bayes experts prior & -0.016 & -0.012 & 0.002 & 0.951 & 0.996\\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}
-\end{table}
-
-\begin{table}
-\caption{Summary of the simulation results for the parameter $\beta_2$}
-\begin{tabular}[t]{llccccc}
-\hline\noalign{\smallskip}
-Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\
-\noalign{\smallskip}\svhline\noalign{\smallskip}
-30 & Maximum likelihood & 0.038 & 0.043 & 0.035 & 0.923 & 0.631\\
-30 & Bayes default prior & 0.014 & 0.047 & 0.028 & 0.954 & 0.535\\
-30 & Bayes reasonable prior & 0.013 & 0.047 & 0.027 & 0.951 & 0.540\\
-30 & Bayes experts prior & 0.005 & 0.046 & 0.026 & 0.951 & 0.545\\
-\noalign{\smallskip}
-50 & Maximum likelihood & -0.006 & 0.004 & 0.020 & 0.940 & 0.769\\
-50 & Bayes default prior & -0.030 & 0.002 & 0.016 & 0.961 & 0.727\\
-50 & Bayes reasonable prior & -0.031 & 0.000 & 0.016 & 0.960 & 0.724\\
-50 & Bayes experts prior & -0.037 & -0.008 & 0.016 & 0.957 & 0.725\\
-\noalign{\smallskip}
-100 & Maximum likelihood & -0.003 & 0.012 & 0.009 & 0.942 & 0.964\\
-100 & Bayes default prior & -0.004 & 0.007 & 0.008 & 0.951 & 0.959\\
-100 & Bayes reasonable prior & -0.005 & 0.007 & 0.008 & 0.948 & 0.958\\
-100 & Bayes experts prior & -0.010 & 0.003 & 0.008 & 0.951 & 0.962\\
-\noalign{\smallskip}
-500 & Maximum likelihood & 0.000 & 0.001 & 0.002 & 0.963 & 1.000\\
-500 & Bayes default prior & -0.002 & 0.004 & 0.001 & 0.963 & 1.000\\
-500 & Bayes reasonable prior & -0.002 & 0.005 & 0.001 & 0.960 & 1.000\\
-500 & Bayes experts prior & -0.004 & 0.004 & 0.001 & 0.962 & 1.000\\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}
-\end{table}
-
-
-\begin{table}
-\caption{Summary of the simulation results for the parameter $\beta_3$}
-\begin{tabular}[t]{llccccc}
-\hline\noalign{\smallskip}
-Sample size & Estimation method & Rel. mean bias & Rel. median bias & MSE & Coverage & Power\\
-\noalign{\smallskip}\svhline\noalign{\smallskip}
-30 & Maximum likelihood & -0.034 & -0.015 & 0.033 & 0.941 & 0.147\\
-30 & Bayes default prior & -0.108 & -0.124 & 0.027 & 0.959 & 0.112\\
-30 & Bayes reasonable prior & -0.037 & -0.050 & 0.021 & 0.970 & 0.117\\
-30 & Bayes experts prior & 0.148 & 0.096 & 0.009 & 0.993 & 0.153\\
-\noalign{\smallskip}
-50 & Maximum likelihood & 0.030 & 0.014 & 0.019 & 0.939 & 0.195\\
-50 & Bayes default prior & -0.025 & -0.001 & 0.017 & 0.950 & 0.164\\
-50 & Bayes reasonable prior & 0.013 & 0.034 & 0.014 & 0.954 & 0.172\\
-50 & Bayes experts prior & 0.140 & 0.132 & 0.008 & 0.978 & 0.247\\
-\noalign{\smallskip}
-100 & Maximum likelihood & -0.009 & -0.028 & 0.008 & 0.954 & 0.295\\
-100 & Bayes default prior & -0.030 & -0.049 & 0.008 & 0.960 & 0.278\\
-100 & Bayes reasonable prior & -0.012 & -0.025 & 0.007 & 0.963 & 0.294\\
-100 & Bayes experts prior & 0.070 & 0.049 & 0.005 & 0.972 & 0.364\\
-\noalign{\smallskip}
-500 & Maximum likelihood & -0.016 & -0.025 & 0.002 & 0.952 & 0.871\\
-500 & Bayes default prior & -0.021 & -0.033 & 0.002 & 0.951 & 0.862\\
-500 & Bayes reasonable prior & -0.017 & -0.034 & 0.002 & 0.953 & 0.875\\
-500 & Bayes experts prior & 0.003 & -0.011 & 0.002 & 0.957 & 0.904\\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}
-\end{table}
-
-\clearpage
 
 \bibliographystyle{spmpsci.bst}
 \bibliography{SIS_2020.bib}
