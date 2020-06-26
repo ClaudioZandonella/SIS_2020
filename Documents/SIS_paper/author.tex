@@ -76,7 +76,7 @@ Psychology, University of Padova \\ \email{enrico.toffalini@yahoo.it}
 }
 
 % Structural Equation Modeling (SEM) is useful in psychological research, where complex structures of data must be modelled considering several sources of variability. Sample sizes in Psychology cannot be as large as ideal for SEM in most cases, and real effect sizes are generally small, leading to a widespread problem of insufficient power. Bayesian estimation with informed priors can be beneficial in this context. Our simulation study examines this issue over a real case of a mediation model. Parameter recovery, power and coverage were considered. The advantage of a Bayesian approach was evident for the smallest effects. Expert knowledge elicitation, i.e., the correct formalization of the theoretical expectations, is crucial and it allows for increased collaboration among researchers in Psychology and Statistics.
-\abstract{\emph{I Modelli di Equazioni Strutturali (SEM) sono utilizzati in psicologia ma i campioni  spesso limitati portano ad un problema di insufficiente potenza. Il nostro studio di simulazione esamina i vantaggi dell'approccio bayesiano con prior informative nel caso di un modello di mediazione. Sono state considerate la stima dei parametri, gli intervalli di confidenza e la potenza. Il vantaggio dell'approccio Bayesiano è risultato evidente per gli effetti minori. La formalizzazione delle aspettative teoriche è cruciale e favorisce una fruttuosa collaborazione tra i ricercatori.
+\abstract{\emph{I Modelli di Equazioni Strutturali (SEM) sono spesso utilizzati in psicologia. Tuttavia, campioni limitati portano ad un problema di insufficiente potenza. Il nostro studio di simulazione esamina i vantaggi dell'approccio bayesiano con prior informative nel caso di un modello di mediazione. Sono state considerate la stima dei parametri, gli intervalli di confidenza e la potenza. Il vantaggio dell'approccio Bayesiano è risultato evidente per gli effetti minori. La formalizzazione delle aspettative teoriche è cruciale e favorisce una fruttuosa collaborazione tra i ricercatori.
 }}
 
 % I Modelli di Equazioni Strutturali (SEM) sono utilizzati in psicologia per indagare fenomeni complessi. In psicologia le dimensioni degli effetti sono generalmente piccole e i campioni di studio non ideali per l'approccio SEM, portando a un problema di insufficiente potenza. La stima bayesiana con prior informative può essere utile in questo contesto. Il nostro studio di simulazione esamina questo problema nel caso reale di un modello di mediazione. Sono state considerate la stima dei parametri, gli intervalli di confidenza e la potenza. Il vantaggio dell'approccio Bayesiano è risultato evidente per gli effetti più piccoli. La formalizzazione della conoscenza degli esperti e delle aspettative teoriche è cruciale soprattutto nell'ottica di favorire una fruttuosa collaborazione tra ricercatori in Psicologia e Statistica.
@@ -99,16 +99,11 @@ Psychology, University of Padova \\ \email{enrico.toffalini@yahoo.it}
 	\includegraphics[width = .45\textwidth]{figure/Plot_SEM}
 	\caption{A structural equation model. Within the dashed box is the structural model, outside is the measurement model. Circles for latent variables; rectangles for observed variables.}
 \end{figure}
-
-
-
 % Considering the covariance structure (instead of modeling all the observed data) allows to model complex relations between variables taking into account also the  measurement error.
-
 % Given their great flexibility, SEMs are widely used in psychology for various purposes such as validating psychological tests and questionnaires or evaluating hypotheses and theoretical models that involve complex relations between different latent psychological constructs.
 SEMs are widely used in psychology to model complex relations between different latent psychological constructs. However, as the complexity of the model increases, more data are required to obtain accurate parameter estimates and model fit statistics \cite{wolfSampleSizeRequirements2013}.
 %Recent concerns about the replicability of psychological results have raised awareness on the importance of properly define an adequate sample size \cite{ioannidisWhyMostPublished2005, opensciencecollaborationEstimatingReproducibilityPsychological2015}.
 % Nevertheless, in many research settings, the number of participants may be limited due to financial restriction, strict inclusion criteria, or clinical samples. In the case of small sample sizes, appropriate statistical techniques are required to enhance the reliability of the results.
-
 Nevertheless, in many research settings, the number of participants may be limited and appropriate statistical techniques are required to enhance the reliability of the results.
 
 % Often in the literature, the Bayesian approach is suggested over frequentist estimation when limited data are available \cite{mcneishUsingBayesianMethods2016a}.  In the context of small sample, the inclusion of prior information can help in the parameter estimation, but researchers have to carefully consider priors choice, as estimates are highly sensitive to the prior specification (or misspecification).
@@ -121,9 +116,7 @@ However, most of the studies rely on default software prior settings. A recent r
 % Informative priors allow researchers to include in the analysis relevant knowledge in the field, such as previous studies results, meta-analyses or expert opinions.
 % Informative priors allow researchers to include in the analysis relevant knowledge in the field. Priors choice should be clearly discussed and researchers are required to evaluate the generalizability of external information to the specific characteristics of their study. Researchers could also consider to include opinions of experts. On the base of their experience in the field, experts can evaluate relevant information and help researchers in the definition of a plausible range of values and priors choice.
 %When the number of available studies is limited or their quality is judged not adequate, relying only on previous results in the literature could be misleading. In these cases, researchers could consider to include opinions of experts as well. On the base of their experience in the field, experts can evaluate relevant information and help researchers in the definition of a plausible range of values and priors choice.
-Informative priors allow researchers to include in the analysis relevant knowledge in the field. Researchers could also consider to include opinions of experts. On the base of their experience in the field, experts can evaluate relevant information and help researchers in the definition of a plausible range of values and priors choice.
-
-\emph{Elicitation} is a structured procedure that allows experts to express their knowledge and uncertainty about quantities of interest in the form of probability distributions \cite{ohaganExpertKnowledgeElicitation2019,ohaganUncertainJudgementsEliciting2006}. Elicitation can be used to define priors according to  experts' judgement.
+Informative priors allow researchers to include in the analysis relevant knowledge in the field. Researchers could also consider to include opinions of experts. On the base of their experience in the field, experts can evaluate relevant information and help researchers in the definition of a plausible range of values and priors choice. \emph{Elicitation} is a structured procedure that allows experts to express their knowledge and uncertainty about quantities of interest in the form of probability distributions \cite{ohaganExpertKnowledgeElicitation2019,ohaganUncertainJudgementsEliciting2006}. Elicitation can be used to define priors according to  experts' judgement.
 
 %The aim is to make a subjective judgement as much objective as possible by limiting potential sources of bias, forcing the experts to carefully reason about the answer, and by documenting and transparently reporting the whole procedure \cite{ohaganUncertainJudgementsEliciting2006}.
 
@@ -206,24 +199,24 @@ Relative bias included between -.10 and .10 are considered acceptable \cite{smid
 The tables with detailed results for each parameter and condition are available at \url{https://osf.io/hwj8d/}. To interpret the results of relative mean and median bias, we considered the distribution of the estimated parameters (see Fig.~\ref{fig:boxplots}).
 \begin{figure}[t]
 	\sidecaption
-	\includegraphics[width = .75\textwidth]{figure/Plot_boxplots}
+	\includegraphics[width = .8\textwidth]{figure/Plot_boxplots}
 	\caption{Estimates distribution for each parameter across the different condition. Dashed lines represent the true population values.}
 	\label{fig:boxplots}
 \end{figure}
 Only with very small sample sizes ($n=30$) it is possible to observe some differences between estimation methods: Maximum likelihood approach produces the widest distributions, whereas Bayesian approach with experts prior has narrower distributions. However, differences between methods are noticeable for the parameter $\beta_3$ (i.e., the parameter with the smallest population value) but are less evident for the other parameters and, as the sample size increases, estimation methods perform similar to each other.
 
 Considering the MSE (see Fig.\ref{fig:mse}), we have the same results pattern. Differences between methods are bigger in the case of very small samples ($n=30$), where Bayesian approach with experts prior performs better. However, differences between prior specification are noticeable only for the parameter $\beta_3$.
-\begin{figure}[b]
+\begin{figure}[t]
 	\sidecaption
-	\includegraphics[width = .75\textwidth]{figure/Plot_MSE}
+	\includegraphics[width = .8\textwidth]{figure/Plot_MSE}
 	\caption{Mean Squared Error (MSE) values for each parameter across the different conditions.}
 	\label{fig:mse}
 \end{figure}
 
 Finally, the result of coverage and power are presented in Fig.~\ref{fig:Plot_coverage_power}.
-\begin{figure}[t]
+\begin{figure}[b]
 	\sidecaption
-	\includegraphics[width = .75\textwidth]{figure/Plot_coverage_power}
+	\includegraphics[width = .8\textwidth]{figure/Plot_coverage_power}
 	\caption{Coverage and power values for each parameter across the different conditions.}
 	\label{fig:Plot_coverage_power}
 \end{figure}
@@ -238,9 +231,7 @@ Coverage reaches adequate levels in all conditions  with sample size  equal to o
 In the simulation, we evaluated the different estimation methods in the case of SEMs with small sample size. Overall, results indicate that informative priors are useful in the case of limited sample sizes and when the true population values are small. Parameter estimates were more stable  across replications and extreme values were less likely. When the sample size increases the difference between estimation methods becomes less evident.
 
 However, results are not consistent for all the parameters. In most conditions, Bayesian approach performs better than ML but results are very similar between the different prior specifications. Only in the case of small true population parameter values the Bayesian approach with expert priors performs much better than the other prior specifications.
-
 % Thus, it is necessary to investigate the role of prior definition in models with different structures and levels of complexity, where the dimension of the effects varies.
-
 Future studies should focus on the role of prior definition in SEMs with different levels of complexity (e.g., also taking the measurement part into account) and in which the effect sizes vary on a larger range.
 %Another important aspect that future studies should evaluate is the impact of prior knowledge misspecification, in partcular in situations with small sample sizes.
 
